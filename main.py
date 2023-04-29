@@ -154,7 +154,7 @@ def run_conversation_loop(
 def get_service_context(model_path):    
     embeddings = HuggingFaceEmbeddings()
     embed_model = LangchainEmbedding(embeddings)
-    llm = LlamaCpp(max_tokens=150, n_ctx=512, model_path=model_path, temperature=0.8, n_threads=6, f16_kv=True, use_mlock=True)
+    llm = LlamaCpp(max_tokens=150, n_ctx=512, model_path=model_path, temperature=0.8, n_threads=6, f16_kv=True, use_mlock=True, top_k=40)
     max_input_size = 125
     num_output = 30
     max_chunk_overlap = -100000
