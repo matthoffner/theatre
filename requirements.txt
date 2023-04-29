@@ -1,0 +1,7 @@
+llama_index
+pydantic
+langchain
+fastapi
+uvicorn
+sse_starlette
+llama-cpp-python==0.1.38
