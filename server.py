@@ -36,7 +36,6 @@ args = LlamaArgs()
 
 @app.get("/about")
 async def index(request: Request):
-    # prompt = request.query_params.get('prompt')
     html_content = f"""
     <html>
         <head>
