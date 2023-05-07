@@ -11,5 +11,3 @@ Add model to `server.py`
 ```python
 python3 server.py
 ```
-
-![](./image.jpeg)
