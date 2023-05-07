@@ -7,7 +7,7 @@ from llama_index.prompts.prompts import QuestionAnswerPrompt
 from llama_index import LangchainEmbedding
 from llama_index import LLMPredictor, ServiceContext, GPTListIndex
 from langchain.llms import LlamaCpp
-from adapter import HuggingFaceEmbeddings
+from langchain.embeddings import HuggingFaceEmbeddings
 from collections import deque
 from pydantic import BaseModel, Field
 from typing import Optional, Dict
@@ -152,7 +152,7 @@ def run_conversation_loop(
 
 
 def get_service_context(model_path):    
-    embeddings = HuggingFaceEmbeddings()
+    embeddings = HuggingFaceEmbeddings(model_kwargs={"device": "mps"})
     embed_model = LangchainEmbedding(embeddings)
     llm = LlamaCpp(max_tokens=150, n_ctx=512, model_path=model_path, temperature=0.8, n_threads=6, f16_kv=True, use_mlock=True, top_k=40)
     max_input_size = 125
